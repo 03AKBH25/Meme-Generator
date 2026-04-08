@@ -19,7 +19,7 @@ const Sidebar = ({ onSelectMeme }) => {
   const [memes, setMemes] = useState([]);
 
   useEffect(() => {
-    fetch('/memes.json')
+    fetch('./memes.json')
       .then(res => res.json())
       .then(data => setMemes(data))
       .catch(err => console.error("Error loading memes:", err));
@@ -29,7 +29,7 @@ const Sidebar = ({ onSelectMeme }) => {
     <aside className="sidebar">
       <div className="sidebar-header">
         <div className="sidebar-title-group">
-          <img src="/shiba-logo.png" alt="Logo" style={{ width: '32px', height: '32px', borderRadius: '50%' }} />
+          <img src="./shiba-logo.png" alt="Logo" style={{ width: '32px', height: '32px', borderRadius: '50%' }} />
           <h2 className="sidebar-title">Templates</h2>
         </div>
         <p className="sidebar-subtitle">Quick Memes</p>
@@ -39,9 +39,9 @@ const Sidebar = ({ onSelectMeme }) => {
           <div 
             key={idx} 
             className="meme-item"
-            onClick={() => onSelectMeme(`/memes/${meme}`)}
+            onClick={() => onSelectMeme(`./memes/${meme}`)}
           >
-            <img src={`/memes/${meme}`} alt={meme} />
+            <img src={`./memes/${meme}`} alt={meme} />
             <div className="meme-overlay">
               <Plus size={24} color="white" />
             </div>
@@ -421,7 +421,7 @@ export default function App() {
         <header className="header">
           <div className="logo-group">
             <div className="logo-box" style={{ background: 'transparent', boxShadow: 'none' }}>
-               <img src="/shiba-logo.png" alt="Shiba Logo" style={{ width: '100%', height: '100%', borderRadius: '8px' }} />
+               <img src="./shiba-logo.png" alt="Shiba Logo" style={{ width: '100%', height: '100%', borderRadius: '8px' }} />
             </div>
             <h1 className="logo-text animate-phrase" key={currentPhraseIdx}>
               {phrases[currentPhraseIdx]}
